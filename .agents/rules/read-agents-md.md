@@ -1,0 +1,9 @@
+---
+trigger: always_on
+---
+
+# Read AGENTS.md
+
+Before working in this repository, read `AGENTS.md` at the repository root and follow its project guidance.
+
+Treat `AGENTS.md` as the source of truth for project-specific architecture, quality, testing, frontend, and background-work rules.
