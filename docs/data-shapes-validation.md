@@ -4,6 +4,10 @@ Data models are the single source of truth for both shape and validation.
 Services and components consume already validated, typed values. They should not
 re-validate or sanitize data with ad hoc checks.
 
+Schema validators own structural validation: types, required fields, length,
+format, and coercion. Services may still enforce domain invariants that require
+business context, persistence, authorization, or current system state.
+
 ## Rules
 
 1. Define each shape once.
@@ -13,12 +17,12 @@ re-validate or sanitize data with ad hoc checks.
 2. Validate at boundaries: request bodies, query params, environment variables,
    external API responses, form inputs, and message payloads.
 3. Services accept domain types, not raw `dict`, JSON, `unknown`, or `any`.
-4. Do not duplicate constraints with checks like `if not value` or
-   `len(value) > 50` inside services or components. Put constraints on the
-   model or schema.
-5. Keep one schema per concept. Derive variants with Pydantic helpers such as
-   `model_copy` or `PartialModel`, or with Zod methods such as `.partial()`,
-   `.pick()`, and `.omit()`.
+4. Do not duplicate structural constraints with checks like `if not value` or
+   `len(value) > 50` inside services or components. Put those constraints on
+   the model or schema.
+5. Keep one schema per concept. Derive variants with explicit create/update
+   models, Pydantic helpers such as `model_copy`, project helpers when they
+   exist, or Zod methods such as `.partial()`, `.pick()`, and `.omit()`.
 6. Surface validation errors at the boundary. Services raise domain errors, not
    validation errors.
 
