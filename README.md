@@ -22,7 +22,7 @@ in every chat.
 | Generic agents / Codex-style agents | `AGENTS.md` |
 | Claude Code | `CLAUDE.md` with `@AGENTS.md` |
 | Cursor | `.cursor/rules/read-agents-md.mdc` |
-| Agent frameworks using `.agents/rules` | `.agents/rules/read-agents-md.md` |
+| Antigravity | `.agents/rules/read-agents-md.md` |
 
 If your tool does not support include syntax like `@AGENTS.md`, copy the
 content from `AGENTS.md` directly into that tool's rule file.
@@ -49,8 +49,7 @@ team preferences.
 - `AGENTS.md`: compact entry point for agent guidance.
 - `CLAUDE.md`: Claude Code bridge that includes `AGENTS.md`.
 - `.cursor/rules/read-agents-md.mdc`: Cursor rule that loads `AGENTS.md`.
-- `.agents/rules/read-agents-md.md`: always-on bridge for agent frameworks that
-  read `.agents/rules`.
+- `.agents/rules/read-agents-md.md`: Antigravity bridge that loads `AGENTS.md`.
 - `docs/`: focused rule documents with Good/Bad examples.
 
 ## Rule Catalog
